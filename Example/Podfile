@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'ElementKit_Example', :exclusive => true do
+  pod 'ElementKit', :path => '../'
+end
+
+target 'ElementKit_Tests', :exclusive => true do
+  pod 'ElementKit', :path => '../'
+
+  pod 'FBSnapshotTestCase'
+end
