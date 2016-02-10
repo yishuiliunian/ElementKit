@@ -1,0 +1,25 @@
+{
+  "name": "ElementKit",
+  "version": "0.1.0",
+  "summary": "ElementKit是受启发自Data-Flow编程的思想",
+  "description": "目前流行的数据流编程的框架有RAC，ReSwift，ComponentKit等等，他们都有自己优秀的一面，RAC和ReSwift比较擅长处理UI事件为主导的数据流，而ComponentKit则是擅长处理以底层到UI的数据流向，而数据流往往是双向的。因而简历一套可以处理处理双向数据流的编程框架。",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/ElementKit",
+  "license": "MIT",
+  "authors": {
+    "stonedong": "yishuiliunian@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/ElementKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "ElementKit": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

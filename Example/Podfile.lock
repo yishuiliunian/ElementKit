@@ -1,0 +1,30 @@
+>-
+  PODS:
+  - >-
+    ElementKit (0.1.0)
+
+>-
+  DEPENDENCIES:
+  - >-
+    ElementKit (from `../`)
+
+>-
+  EXTERNAL SOURCES:
+  >-
+    ElementKit:
+    :path: >-
+      ../
+
+>-
+  SPEC CHECKSUMS:
+  >-
+    ElementKit: >-
+    483a24babbe54279993e9008ba319eb79e8e6ef8
+
+>-
+  PODFILE CHECKSUM: >-
+  58b5ca33395e1a0a091606147baba7855db65317
+
+>-
+  COCOAPODS: >-
+  1.0.0.beta.3

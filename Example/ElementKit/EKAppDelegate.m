@@ -7,12 +7,21 @@
 //
 
 #import "EKAppDelegate.h"
+#import "EKMessageTableElement.h"
+#import "EKMessageViewController.h"
 
 @implementation EKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    EKMessageTableElement* element = [EKMessageTableElement new];
+    EKMessageViewController* vc = [[EKMessageViewController alloc] initWithElement:element];
+    
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
