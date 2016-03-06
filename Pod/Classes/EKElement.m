@@ -9,7 +9,7 @@
 #import "EKElement.h"
 #import "EKAction.h"
 @implementation EKElement
-- (UIView*) createView
+- (UIResponder*) createResponser
 {
     if (_viewClass) {
         return [_viewClass new];
@@ -33,19 +33,22 @@
         [self.nextResponser ekHandleAction:action fromView:view];
     }
 }
-- (void) willDisplayView:(UIView*)view
+- (void) willBeginHandleResponser:(UIResponder *)view
 {
-    _displayView = view;
+    _uiEventPool = view;
 }
-- (void) didDisplayView:(UIView*)view
+- (void) didBeginHandleResponser:(UIResponder *)view
 {
     
 }
-- (void) willEndDisplayView:(UIView*)view
+
+- (void) willRegsinHandleResponser:(UIResponder *)view
 {
+    
 }
-- (void) didEndDisplayView:(UIView*)view
+
+- (void) didRegsinHandleResponser:(UIResponder *)view
 {
-    _displayView = nil;
+    _uiEventPool = nil;
 }
 @end

@@ -24,9 +24,9 @@
     return self;
 }
 
-- (UIView*) createView
+- (UIResponder*) createResponser
 {
-    UITableView* tableView = (UITableView*)[super createView];
+    UITableView* tableView = (UITableView*)[super createResponser];
     tableView.delegate = self;
     tableView.dataSource = self;
     return tableView;
@@ -48,7 +48,7 @@
     EKCellElement* element = (EKCellElement*)[_dataController objectAtIndexPath:EKIndexPathFromNS(indexPath)];
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:element.cellIdentifier];
     if (!cell) {
-        cell = [element createView];
+        cell = (UITableViewCell*)[element createResponser];
     }
     return cell;
 }
@@ -57,18 +57,18 @@
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EKCellElement* element = (EKCellElement*)[_dataController objectAtIndexPath:EKIndexPathFromNS(indexPath)];
-    [element willDisplayView:cell];
+    [element willBeginHandleResponser:cell];
     cell.ekActionResponser= element;
-    [element didDisplayView:cell];
+    [element didBeginHandleResponser:cell];
 
 }
 
 - (void) tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EKCellElement* element = (EKCellElement*)[_dataController objectAtIndexPath:EKIndexPathFromNS(indexPath)];
-    [element willEndDisplayView:cell];
+    [element willRegsinHandleResponser:cell];
     cell.ekActionResponser = nil;
-    [element didEndDisplayView:cell];
+    [element didRegsinHandleResponser:cell];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,28 +80,16 @@
 
 - (UITableView*) tableView
 {
-    return (UITableView*)self.displayView;
+    return [(UITableViewController*)self.uiEventPool tableView];
 }
 
 #pragma Live Circle
-- (void) willDisplayView:(UITableView*)view
-{
-    [super willDisplayView:view];
+- (void) willBeginHandleResponser:(UIResponder *) responser {
+    [super willBeginHandleResponser:responser];
     if (_firstDisplay) {
         [self reloadData];
         _firstDisplay = NO;
     }
 }
-- (void) didDisplayView:(UITableView*)view
-{
-    [super didDisplayView:view];
-}
-- (void) willEndDisplayView:(UITableView*)view
-{
-    [super willEndDisplayView:view];
-}
-- (void) didEndDisplayView:(UITableView*)view
-{
-    [super didEndDisplayView:view];
-}
+
 @end

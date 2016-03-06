@@ -8,7 +8,7 @@
 
 #import "EKElement.h"
 #import "EKTableDataController.h"
-
+#import <UIKit/UIKit.h>
 @interface EKTableElement : EKElement <UITableViewDelegate, UITableViewDataSource>
 {
     @protected

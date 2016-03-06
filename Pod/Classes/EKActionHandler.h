@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @class EKAction;
 @protocol EKActionHandler <NSObject>
 @property (nonatomic, weak) id<EKActionHandler> nextResponser;

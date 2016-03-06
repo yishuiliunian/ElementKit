@@ -67,5 +67,9 @@
 {
     _dataArray[indexPath.section][indexPath.row] = anObject;
 }
+- (void) clean
+{
+    _dataArray = [NSMutableArray new];
+}
 
 @end

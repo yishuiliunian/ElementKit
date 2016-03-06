@@ -33,7 +33,7 @@
 - (void) loadView
 {
     NSAssert(_tableElement, @"table element is nil");
-    self.view = [_tableElement createView];
+    self.view = (UIView*)[_tableElement createResponser];
     NSAssert([self.view isKindOfClass:UITableView.class], @"can't init the root table view with %@",self.view);
     UITableView* tableView = (UITableView*)self.view;
     self.tableView = tableView;
@@ -48,26 +48,26 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [_tableElement willDisplayView:self.tableView];
+    [_tableElement willBeginHandleResponser:self];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [_tableElement willEndDisplayView:self.tableView];
+    [_tableElement didBeginHandleResponser:self];
 }
 
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [_tableElement didDisplayView:self.tableView];
+    [_tableElement willRegsinHandleResponser:self];
 }
 
 - (void) viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    [_tableElement didEndDisplayView:self.tableView];
+    [_tableElement didRegsinHandleResponser:self];
 }
 
 

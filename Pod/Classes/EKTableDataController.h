@@ -22,4 +22,5 @@
 - (EKIndexPath) addObject:(id)anObject;
 - (EKIndexPath) addObject:(id)anObject atSection:(EKSection)sectioin;
 - (void) updateObject:(id)anObject atIndexPath:(EKIndexPath)indexPath;
+- (void) clean;
 @end

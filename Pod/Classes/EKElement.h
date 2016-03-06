@@ -9,15 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "EKActionHandler.h"
 
-@interface EKElement : NSObject <EKActionHandler>
+@protocol  EKUIResponseHandler<NSObject>
+- (UIResponder*) createResponser;
+- (void) willBeginHandleResponser:(UIResponder*)responser;
+- (void) didBeginHandleResponser:(UIResponder*)responser;
+- (void) willRegsinHandleResponser:(UIResponder*)responser;
+- (void) didRegsinHandleResponser:(UIResponder*)responser;
+
+@end
+
+
+
+@interface EKElement : NSObject <EKActionHandler, EKUIResponseHandler>
 {
     Class _viewClass;
 }
-@property (nonatomic, weak, readonly) UIView* displayView;
+@property (nonatomic, weak, readonly) UIResponder* uiEventPool;
 
-- (UIView*) createView;
-- (void) willDisplayView:(UIView*)view;
-- (void) didDisplayView:(UIView*)view;
-- (void) willEndDisplayView:(UIView*)view;
-- (void) didEndDisplayView:(UIView*)view;
 @end

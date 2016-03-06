@@ -28,4 +28,6 @@
     image = [image resizableImageWithCapInsets:inset resizingMode:UIImageResizingModeStretch];
     cell.bubuleImageView.image = image;
 }
+
+
 @end
