@@ -8,13 +8,15 @@
 
 #import "EKTableDataController.h"
 
-
+#import "EKEventBus.h"
+#import "NSObject+EventBus.h"
 
 @implementation EKTableDataController
 {
     NSMutableArray* _dataArray;
 }
 
+@synthesize element = _element;
 - (instancetype) init
 {
     self = [super init];
@@ -49,27 +51,44 @@
         [array addObject:anObject];
         [_dataArray addObject:array];
     }
-    
     EKIndexPath path;
     path.section = self.numberOfSections - 1;
     path.row = [self numberAtSection:path.section] - 1;
+    [anObject setEventBus:[_element eventBus]];
     return path;
 }
+
 - (EKIndexPath) addObject:(id)anObject atSection:(EKSection)sectioin
 {
     [(NSMutableArray*)[_dataArray objectAtIndex:sectioin] addObject:anObject];
     EKIndexPath path;
     path.section = sectioin;
     path.row = [_dataArray[sectioin] count] - 1;
+    [anObject setEventBus:[_element eventBus]];
     return path;
 }
 - (void) updateObject:(id)anObject atIndexPath:(EKIndexPath)indexPath
 {
     _dataArray[indexPath.section][indexPath.row] = anObject;
+    [anObject setEventBus:[_element eventBus]];
 }
 - (void) clean
 {
     _dataArray = [NSMutableArray new];
+}
+
+- (void) map:(void (^)(id  e))map
+{
+    if (!map) {
+        return;
+    }
+
+    for (NSArray* array  in _dataArray) {
+        for (EKElement* e in array) {
+            map(e);
+        }
+    }
+
 }
 
 @end

@@ -15,6 +15,7 @@
     BOOL _firstDisplay;
     EKTableDataController* _dataController;
 }
+@property (nonatomic, strong, readonly) EKTableDataController * dataController;
 @property (nonatomic, weak, readonly) UITableView* tableView;
 @property (nonatomic, weak) UIViewController* env;
 

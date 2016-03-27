@@ -8,6 +8,9 @@
 
 #import "EKElement.h"
 #import "EKAction.h"
+#import "EKEventBus.h"
+#import "NSObject+EventBus.h"
+
 @implementation EKElement
 - (UIResponder*) createResponser
 {
@@ -36,6 +39,7 @@
 - (void) willBeginHandleResponser:(UIResponder *)view
 {
     _uiEventPool = view;
+    [view setEventBus:[self eventBus]];
 }
 - (void) didBeginHandleResponser:(UIResponder *)view
 {
@@ -49,6 +53,6 @@
 
 - (void) didRegsinHandleResponser:(UIResponder *)view
 {
-    _uiEventPool = nil;
+    [view setEventBus:nil];
 }
 @end

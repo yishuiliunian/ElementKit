@@ -8,8 +8,12 @@
 
 #import "EKTableViewController.h"
 #import "EKTableElement.h"
+#import "EKEventBus.h"
+#import "NSObject+EventBus.h"
 @implementation EKTableViewController
-
+{
+    EKEventBus* _eventBus;
+}
 
 - (instancetype) initWithStyle:(UITableViewStyle)style element:(EKTableElement *)element
 {
@@ -17,7 +21,10 @@
     if (!self) {
         return self;
     }
+    _eventBus = [EKEventBus new];
     _tableElement = element;
+    _tableElement.eventBus = _eventBus;
+    _tableElement.dataController.element = _tableElement;
     return self;
 }
 
@@ -30,18 +37,14 @@
     return self;
 }
 
-- (void) loadView
-{
-    NSAssert(_tableElement, @"table element is nil");
-    self.view = (UIView*)[_tableElement createResponser];
-    NSAssert([self.view isKindOfClass:UITableView.class], @"can't init the root table view with %@",self.view);
-    UITableView* tableView = (UITableView*)self.view;
-    self.tableView = tableView;
-}
+
 
 - (void) viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.dataSource = _tableElement;
+    self.tableView.delegate = _tableElement;
+  
 }
 
 

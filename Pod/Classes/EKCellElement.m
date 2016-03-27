@@ -35,10 +35,6 @@
     }
 }
 
-- (UIView*) createView
-{
-    return [[_viewClass alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:self.cellIdentifier];
-}
 
 
 - (void) handleSelectedInViewController:(UIViewController *)vc

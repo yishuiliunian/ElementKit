@@ -11,8 +11,9 @@
 #import "EKIndexPath.h"
 
 
-
+@class EKElement;
 @interface EKTableDataController : NSObject
+@property (nonatomic, weak) id element;
 
 - (NSInteger) numberOfSections;
 - (NSInteger) numberAtSection:(EKSection)section;
@@ -23,4 +24,5 @@
 - (EKIndexPath) addObject:(id)anObject atSection:(EKSection)sectioin;
 - (void) updateObject:(id)anObject atIndexPath:(EKIndexPath)indexPath;
 - (void) clean;
+- (void) map:(void(^)(id e))map;
 @end

@@ -10,6 +10,6 @@
 #import "EKTableChange.h"
 #import "EKTableElement.h"
 #import "EKTableViewController.h"
-
-
+#import "EKAdjustCellElement.h"
+#import "EKAdjustTableElement.h"
 

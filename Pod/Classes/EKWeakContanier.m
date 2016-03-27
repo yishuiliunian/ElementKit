@@ -24,10 +24,8 @@ void EKStoreWeakValue(NSObject* container, void* key ,id value){
 
 id EKGetWekaValue(NSObject* container, void* key)
 {
-    return objc_getAssociatedObject(container, key);
+    return [objc_getAssociatedObject(container, key) object];
 }
-
-
 
 
 @implementation NSObject(WeakContainer)

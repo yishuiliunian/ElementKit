@@ -24,6 +24,6 @@
 {
     Class _viewClass;
 }
+- (UIResponder*) createResponser;
 @property (nonatomic, weak, readonly) UIResponder* uiEventPool;
-
 @end

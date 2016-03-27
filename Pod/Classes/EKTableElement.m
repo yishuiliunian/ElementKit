@@ -11,6 +11,7 @@
 #import "UIView+EKElement.h"
 #import "EKIndexPath.h"
 
+
 @implementation EKTableElement
 - (instancetype) init
 {
@@ -57,6 +58,7 @@
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EKCellElement* element = (EKCellElement*)[_dataController objectAtIndexPath:EKIndexPathFromNS(indexPath)];
+    element.superTableView = tableView;
     [element willBeginHandleResponser:cell];
     cell.ekActionResponser= element;
     [element didBeginHandleResponser:cell];
@@ -68,6 +70,7 @@
     EKCellElement* element = (EKCellElement*)[_dataController objectAtIndexPath:EKIndexPathFromNS(indexPath)];
     [element willRegsinHandleResponser:cell];
     cell.ekActionResponser = nil;
+    element.superTableView = nil;
     [element didRegsinHandleResponser:cell];
 }
 
