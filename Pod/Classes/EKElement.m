@@ -43,7 +43,6 @@
 }
 - (void) didBeginHandleResponser:(UIResponder *)view
 {
-    
 }
 
 - (void) willRegsinHandleResponser:(UIResponder *)view
