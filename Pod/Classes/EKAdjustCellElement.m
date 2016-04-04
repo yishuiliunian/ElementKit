@@ -18,4 +18,9 @@
     _cellHeight = 44;
     return self;
 }
+
+- (void) layoutCell:(EKAdjustTableViewCell *)cell
+{
+    
+}
 @end

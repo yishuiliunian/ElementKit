@@ -29,9 +29,6 @@
 {
     if (_superTableView != superTableView) {
         _superTableView = superTableView;
-        if (_viewClass) {
-            [_superTableView registerClass:_viewClass forCellReuseIdentifier:self.cellIdentifier];
-        }
     }
 }
 
