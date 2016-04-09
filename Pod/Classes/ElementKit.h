@@ -12,5 +12,7 @@
 #import "EKTableViewController.h"
 #import "EKAdjustCellElement.h"
 #import "EKAdjustTableElement.h"
-
+#import "EKCollectionElement.h"
+#import "EKCollectionViewController.h"
+#import "EKCollectionCellElement.h"
 

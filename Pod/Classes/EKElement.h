@@ -27,3 +27,15 @@
 - (UIResponder*) createResponser;
 @property (nonatomic, weak, readonly) UIResponder* uiEventPool;
 @end
+
+#pragma Add Child Element
+@interface EKElement ()
+@property (nonatomic, strong, readonly) NSArray* allChildElement;
+- (void) addChildElement:(EKElement*)element;
+@end
+
+#pragma Child Element Functions
+@interface EKElement ()
+@property (nonatomic, weak, readonly) EKElement* superElement;
+- (void) removeFromeSuper;
+@end

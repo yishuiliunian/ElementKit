@@ -77,7 +77,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EKCellElement* element = (EKCellElement*)[_dataController objectAtIndexPath:EKIndexPathFromNS(indexPath)];
-    [element handleSelectedInViewController:self.env];
+    [element handleSelectedInViewController:self.uiEventPool];
 }
 
 
