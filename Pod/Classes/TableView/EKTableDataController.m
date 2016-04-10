@@ -88,7 +88,15 @@
             map(e);
         }
     }
+}
 
+- (NSInteger) numbersOfObject
+{
+    int num = 0;
+    for (NSArray* array in _dataArray) {
+        num += array.count;
+    }
+    return num;
 }
 
 @end

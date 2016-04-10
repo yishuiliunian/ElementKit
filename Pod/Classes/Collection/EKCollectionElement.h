@@ -9,7 +9,7 @@
 #import <ElementKit/ElementKit.h>
 #import <UIKit/UIKit.h>
 @class EKTableDataController;
-@interface EKCollectionElement : EKElement <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface EKCollectionElement : EKElement <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     EKTableDataController* _dataController;
 }

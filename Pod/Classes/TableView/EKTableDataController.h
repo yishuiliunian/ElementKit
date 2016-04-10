@@ -13,6 +13,7 @@
 
 @class EKElement;
 @interface EKTableDataController : NSObject
+@property (nonatomic, assign, readonly) NSInteger numbersOfObject;
 @property (nonatomic, weak) id element;
 
 - (NSInteger) numberOfSections;
