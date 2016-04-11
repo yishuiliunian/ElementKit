@@ -15,4 +15,4 @@
 #import "EKCollectionElement.h"
 #import "EKCollectionViewController.h"
 #import "EKCollectionCellElement.h"
-
+#import "EKAdjustTableViewCell.h"
