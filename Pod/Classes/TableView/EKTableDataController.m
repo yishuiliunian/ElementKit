@@ -99,4 +99,17 @@
     return num;
 }
 
+- (NSIndexPath*)indexPathOfObject:(id)anobject
+{
+    for (int i = 0; i < _dataArray.count ; i++) {
+        NSArray* eles = _dataArray[i];
+        for (int j = 0; j < eles.count; j++) {
+            if (anobject == eles[j]) {
+                return [NSIndexPath indexPathForRow:j inSection:i];
+            }
+        }
+    }
+    return [NSIndexPath indexPathForRow:NSNotFound inSection:NSNotFound];
+}
+
 @end

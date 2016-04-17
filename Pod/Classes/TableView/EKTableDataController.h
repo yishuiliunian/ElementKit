@@ -26,4 +26,5 @@
 - (void) updateObject:(id)anObject atIndexPath:(EKIndexPath)indexPath;
 - (void) clean;
 - (void) map:(void(^)(id e))map;
+- (NSIndexPath*)indexPathOfObject:(id)anobject;
 @end

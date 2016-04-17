@@ -61,7 +61,9 @@
     element.superTableView = tableView;
     [element willBeginHandleResponser:cell];
     cell.ekActionResponser= element;
-    [element didBeginHandleResponser:cell];
+    dispatch_async(dispatch_get_main_queue(), ^{
+         [element didBeginHandleResponser:cell];
+    });
 
 }
 
