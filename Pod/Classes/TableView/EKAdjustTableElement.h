@@ -6,7 +6,7 @@
 //
 //
 
-#import <ElementKit/ElementKit.h>
+#import "EKTableElement.h"
 
 @interface EKAdjustTableElement : EKTableElement
 {

@@ -6,7 +6,7 @@
 //
 //
 
-#import <ElementKit/ElementKit.h>
+#import "EKElement.h"
 #import <UIKit/UIKit.h>
 @class EKTableDataController;
 @interface EKCollectionElement : EKElement <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>

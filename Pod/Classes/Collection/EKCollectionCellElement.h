@@ -6,7 +6,7 @@
 //
 //
 
-#import <ElementKit/ElementKit.h>
+#import "EKElement.h"
 
 @interface EKCollectionCellElement : EKElement
 {

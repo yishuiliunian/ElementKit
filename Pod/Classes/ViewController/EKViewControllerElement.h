@@ -6,8 +6,9 @@
 //
 //
 
-#import <ElementKit/ElementKit.h>
+#import "EKElement.h"
 
 @interface EKViewControllerElement : EKElement
+
 - (void) responserDidCreated:(UIResponder*)responser;
 @end

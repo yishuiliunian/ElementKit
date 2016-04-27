@@ -17,3 +17,6 @@
 #import "EKCollectionCellElement.h"
 #import "UIResponder+EK_VC.h"
 #import "EKAdjustTableViewCell.h"
+#import "EKViewControllerElement.h"
+#import "EKNavigationControllerElement.h"
+#import "EKViewController.h"
