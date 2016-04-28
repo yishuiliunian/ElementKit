@@ -20,3 +20,4 @@
 #import "EKViewControllerElement.h"
 #import "EKNavigationControllerElement.h"
 #import "EKViewController.h"
+#import "NSObject+EventBus.h"

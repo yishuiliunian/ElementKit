@@ -77,6 +77,10 @@
 {
     [self clean];
     [_dataArray addObject:[NSMutableArray arrayWithArray:array]];
+    
+    [self map:^(id e) {
+        [e setEventBus:[_element eventBus]];
+    }];
 }
 - (void) clean
 {
