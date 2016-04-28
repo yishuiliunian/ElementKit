@@ -69,7 +69,7 @@
 {
     EKEventHandler* hwilldel;
     for (EKEventHandler* h in _handlerArray) {
-        if ([h isEqual:handler]) {
+        if (h.handler ==handler) {
             hwilldel = h;
             break;
         }

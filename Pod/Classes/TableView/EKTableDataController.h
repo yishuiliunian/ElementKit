@@ -27,4 +27,6 @@
 - (void) clean;
 - (void) map:(void(^)(id e))map;
 - (NSIndexPath*)indexPathOfObject:(id)anobject;
+- (void) updateObjects:(NSArray*)array;
+- (void) updateSectionObjects:(NSArray*)sectionsArray;
 @end

@@ -32,6 +32,12 @@
     }
 }
 
+- (void) willBeginHandleResponser:(UITableViewCell*)responser
+{
+    [super willBeginHandleResponser:responser];
+    responser.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
 
 
 - (void) handleSelectedInViewController:(UIViewController *)vc

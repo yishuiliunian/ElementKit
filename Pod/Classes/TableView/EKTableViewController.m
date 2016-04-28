@@ -38,13 +38,18 @@
 }
 
 
+- (void) loadView
+{
+    UITableView* tableView = [_tableElement createResponser];
+    self.tableView = tableView;
+    self.view = tableView;
+}
 
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.dataSource = _tableElement;
-    self.tableView.delegate = _tableElement;
-  
+    self.tableView.dataSource   = _tableElement;
+    self.tableView.delegate     = _tableElement;
 }
 
 
@@ -66,6 +71,7 @@
     [super viewDidAppear:animated];
     [_tableElement willRegsinHandleResponser:self];
 }
+
 
 - (void) viewDidDisappear:(BOOL)animated
 {

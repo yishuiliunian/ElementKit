@@ -72,6 +72,12 @@
     _dataArray[indexPath.section][indexPath.row] = anObject;
     [anObject setEventBus:[_element eventBus]];
 }
+
+- (void) updateObjects:(NSArray *)array
+{
+    [self clean];
+    [_dataArray addObject:[NSMutableArray arrayWithArray:array]];
+}
 - (void) clean
 {
     _dataArray = [NSMutableArray new];

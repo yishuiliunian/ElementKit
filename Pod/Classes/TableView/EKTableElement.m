@@ -30,6 +30,8 @@
     UITableView* tableView = (UITableView*)[super createResponser];
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.tableFooterView = [UIView new];
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     return tableView;
 }
 
