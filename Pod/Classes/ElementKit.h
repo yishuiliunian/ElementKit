@@ -21,3 +21,4 @@
 #import "EKNavigationControllerElement.h"
 #import "EKViewController.h"
 #import "NSObject+EventBus.h"
+#import "EKTabBarViewController.h"

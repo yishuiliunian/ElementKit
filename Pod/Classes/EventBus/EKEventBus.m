@@ -55,10 +55,7 @@
     h.port = selector;
     
     for (EKEventHandler* h in _handlerArray) {
-        if (h.handler == handler) {
-            return;
-        }
-        if (sel_isEqual(h.port, selector)) {
+        if (h.handler == handler && sel_isEqual(h.port, selector)) {
             return;
         }
     }

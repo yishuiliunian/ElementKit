@@ -26,6 +26,14 @@
     _dataArray = [NSMutableArray new];
     return self;
 }
+
+- (void) setSectionData:(NSArray*)array
+{
+    _dataArray = [NSMutableArray new];
+    for (NSArray* a  in array) {
+        [_dataArray addObject:[NSMutableArray arrayWithArray:a]];
+    }
+}
 - (NSInteger) numberOfSections
 {
     return [_dataArray count];
@@ -60,6 +68,9 @@
 
 - (EKIndexPath) addObject:(id)anObject atSection:(EKSection)sectioin
 {
+    if (sectioin == _dataArray.count) {
+        [_dataArray addObject:[NSMutableArray new]];
+    }
     [(NSMutableArray*)[_dataArray objectAtIndex:sectioin] addObject:anObject];
     EKIndexPath path;
     path.section = sectioin;
@@ -122,4 +133,25 @@
     return [NSIndexPath indexPathForRow:NSNotFound inSection:NSNotFound];
 }
 
+- (instancetype) copyWithZone:(NSZone *)zone
+{
+    EKTableDataController* dataController = [[EKTableDataController allocWithZone:zone] init];
+    [dataController setSectionData:_dataArray];
+    return dataController;
+}
+
+- (void) updateObjects:(NSArray *)array atSection:(NSInteger)index
+{
+    NSAssert(index <= _dataArray.count, @"数据越界了");
+    NSMutableArray * datas = [NSMutableArray arrayWithArray:array];
+    if (index == _dataArray.count) {
+        [_dataArray addObject:datas];
+    } else {
+        _dataArray[index] = datas;
+    }
+    
+    for (id e  in array) {
+        [e setEventBus:self.eventBus];
+    }
+}
 @end

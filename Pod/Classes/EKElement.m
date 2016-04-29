@@ -10,7 +10,7 @@
 #import "EKAction.h"
 #import "EKEventBus.h"
 #import "NSObject+EventBus.h"
-
+#import "EKWeakContanier.h"
 @interface EKElement ()
 @property (nonatomic, weak) UIView* linkedView;
 @end
@@ -61,12 +61,14 @@
     for (EKElement* ele in _childElement) {
         [ele willBeginHandleResponser:ele.linkedView];
     }
+    view.attachedElement = self;
 }
 - (void) didBeginHandleResponser:(UIResponder *)view
 {
     for (EKElement* ele in _childElement) {
         [ele didBeginHandleResponser:ele.linkedView];
     }
+    view.attachedElement = nil;
 }
 
 - (void) willRegsinHandleResponser:(UIResponder *)view
@@ -113,5 +115,23 @@
 - (NSArray*)allChildElement
 {
     return [_childElement copy];
+}
+@end
+
+
+
+static void* kEKElementWeakStoreKey = &kEKElementWeakStoreKey;
+
+
+@implementation UIResponder (ElementXX)
+
+- (void) setAttachedElement:(EKElement *)attachedElement
+{
+    [self ekSetWeakValue:attachedElement forKey:kEKElementWeakStoreKey];
+}
+
+- (EKElement*) attachedElement
+{
+    return [self ekGetWeakValueForKey:kEKElementWeakStoreKey];
 }
 @end

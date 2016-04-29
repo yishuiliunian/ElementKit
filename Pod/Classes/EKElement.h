@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "EKActionHandler.h"
-
 @protocol  EKUIResponseHandler<NSObject>
 - (UIResponder*) createResponser;
 - (void) willBeginHandleResponser:(UIResponder*)responser;
@@ -38,4 +37,10 @@
 @interface EKElement ()
 @property (nonatomic, weak, readonly) EKElement* superElement;
 - (void) removeFromeSuper;
+@end
+
+
+
+@interface UIResponder (ElementXX)
+@property (nonatomic, weak) EKElement* attachedElement;
 @end

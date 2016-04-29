@@ -12,7 +12,7 @@
 
 
 @class EKElement;
-@interface EKTableDataController : NSObject
+@interface EKTableDataController : NSObject <NSCopying>
 @property (nonatomic, assign, readonly) NSInteger numbersOfObject;
 @property (nonatomic, weak) id element;
 
@@ -29,4 +29,6 @@
 - (NSIndexPath*)indexPathOfObject:(id)anobject;
 - (void) updateObjects:(NSArray*)array;
 - (void) updateSectionObjects:(NSArray*)sectionsArray;
+- (void) updateObjects:(NSArray *)array atSection:(NSInteger)index;
+
 @end

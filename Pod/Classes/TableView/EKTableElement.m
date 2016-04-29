@@ -71,7 +71,7 @@
 
 - (void) tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EKCellElement* element = (EKCellElement*)[_dataController objectAtIndexPath:EKIndexPathFromNS(indexPath)];
+    EKCellElement* element = cell.ekActionResponser;
     [element willRegsinHandleResponser:cell];
     cell.ekActionResponser = nil;
     element.superTableView = nil;
