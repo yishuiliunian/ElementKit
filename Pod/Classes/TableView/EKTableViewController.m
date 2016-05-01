@@ -15,25 +15,19 @@
     EKEventBus* _eventBus;
 }
 
-- (instancetype) initWithStyle:(UITableViewStyle)style element:(EKTableElement *)element
+
+- (instancetype) initWithElement:(EKTableElement *)element
 {
-    self = [self initWithStyle:style];
+    self = [self init];
     if (!self) {
         return self;
     }
     _eventBus = [EKEventBus new];
+    self.eventBus = _eventBus;
     _tableElement = element;
     _tableElement.eventBus = _eventBus;
     _tableElement.dataController.element = _tableElement;
-    return self;
-}
-
-- (instancetype) initWithElement:(EKTableElement *)element
-{
-    self = [self initWithStyle:UITableViewStylePlain element:element];
-    if (!self) {
-        return self;
-    }
+    _tableElement.env = self;
     return self;
 }
 
@@ -59,20 +53,18 @@
     [_tableElement willBeginHandleResponser:self];
 }
 
-- (void) viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [_tableElement didBeginHandleResponser:self];
-}
-
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [_tableElement willRegsinHandleResponser:self];
+    [_tableElement didBeginHandleResponser:self];
 }
 
-
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [_tableElement willRegsinHandleResponser:self];
+}
 - (void) viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];

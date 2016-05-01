@@ -50,4 +50,23 @@
     
 }
 
+- (UIViewController*) hostViewController
+{
+    if ([self.superTableView.nextResponder isKindOfClass:[UIViewController class]]) {
+        return (UIViewController*)self.superTableView.nextResponder;
+    }
+    return nil;
+}
+
+- (void) reloadUI
+{
+    NSIndexPath* indexPath = [self.superTableView indexPathForCell:self.uiEventPool];
+    if (!indexPath) {
+        return;
+    }
+    if (indexPath.row == NSNotFound || indexPath.section == NSNotFound) {
+        return;
+    }
+    [self.superTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
 @end

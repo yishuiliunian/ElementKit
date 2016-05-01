@@ -14,8 +14,9 @@
 }
 @property (nonatomic, strong, readonly) NSString* cellIdentifier;
 @property (nonatomic,weak) UITableView* superTableView;
+@property (nonatomic, weak, readonly) UIViewController* hostViewController;
 
 
 - (void) handleSelectedInViewController:(UIViewController*)vc;
-
+- (void) reloadUI;
 @end

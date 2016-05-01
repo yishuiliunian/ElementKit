@@ -68,7 +68,6 @@
     for (EKElement* ele in _childElement) {
         [ele didBeginHandleResponser:ele.linkedView];
     }
-    view.attachedElement = nil;
 }
 
 - (void) willRegsinHandleResponser:(UIResponder *)view
@@ -84,6 +83,7 @@
     for (EKElement* ele in _childElement) {
         [ele didRegsinHandleResponser:ele.linkedView];
     }
+    view.attachedElement = nil;
 }
 
 - (void) setSuperElement:(EKElement *)superElement

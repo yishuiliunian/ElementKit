@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 @class EKTableElement;
-@interface EKTableViewController : UITableViewController
+@interface EKTableViewController : UIViewController
 {
     EKTableElement* _tableElement;
 }
+@property (nonatomic, strong) UITableView* tableView;
 @property (nonatomic, strong, readonly) EKTableElement* tableElement;
 - (instancetype) initWithElement:(EKTableElement*)element;
-- (instancetype) initWithStyle:(UITableViewStyle)style element:(EKTableElement*)element;
 @end

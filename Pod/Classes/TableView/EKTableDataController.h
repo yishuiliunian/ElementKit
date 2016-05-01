@@ -30,5 +30,12 @@
 - (void) updateObjects:(NSArray*)array;
 - (void) updateSectionObjects:(NSArray*)sectionsArray;
 - (void) updateObjects:(NSArray *)array atSection:(NSInteger)index;
+- (void) changeObjectToFirst:(id)object;
 
+/**
+ *  排序
+ *
+ *  @param block 使用的block
+ */
+- (void) sortUseBlock:(NSComparisonResult(^)(id  _Nonnull obj1, id  _Nonnull obj2))block;
 @end

@@ -86,12 +86,25 @@
 
 - (void) updateObjects:(NSArray *)array
 {
-    [self clean];
-    [_dataArray addObject:[NSMutableArray arrayWithArray:array]];
-    
+    if (_dataArray.count ==0) {
+        [_dataArray addObject:[NSMutableArray new]];
+    }
+    NSMutableArray* willInsertArray=_dataArray.lastObject;
+    for (EKElement* el in array) {
+        if (![willInsertArray containsObject:el]) {
+            [willInsertArray addObject:el];
+        }
+    }
     [self map:^(id e) {
         [e setEventBus:[_element eventBus]];
     }];
+}
+
+- (void) sortUseBlock:(NSComparisonResult(^)(id  _Nonnull obj1, id  _Nonnull obj2))block
+{
+    for (NSMutableArray* array in _dataArray) {
+        [array sortUsingComparator:block];
+    }
 }
 - (void) clean
 {
@@ -152,6 +165,21 @@
     
     for (id e  in array) {
         [e setEventBus:self.eventBus];
+    }
+}
+
+- (void) changeObjectToFirst:(id)object
+{
+    if (_dataArray.count == 0 || [_dataArray[0] count] == 0) {
+        [self addObject:object];
+    } else {
+        NSMutableArray* array = _dataArray[0];
+        NSInteger index = [array indexOfObject:object];
+        if (index != NSNotFound) {
+            [array exchangeObjectAtIndex:0 withObjectAtIndex:index];
+        } else {
+            [array insertObject:object atIndex:0];
+        }
     }
 }
 @end

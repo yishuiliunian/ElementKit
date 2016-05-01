@@ -24,6 +24,7 @@
     Class _viewClass;
 }
 - (id) createResponser;
+@property (nonatomic, assign, readonly) int64_t compareIdentifier;
 @property (nonatomic, weak, readonly) UIResponder* uiEventPool;
 @end
 
