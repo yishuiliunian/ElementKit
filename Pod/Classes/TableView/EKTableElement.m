@@ -101,6 +101,6 @@
 
 - (void) reloadData
 {
-    
+    [self.tableView reloadData];
 }
 @end
