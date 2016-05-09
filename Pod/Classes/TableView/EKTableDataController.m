@@ -182,4 +182,19 @@
         }
     }
 }
+
+- (BOOL) containsObject:(EKElement*)element
+{
+    __block BOOL contains = NO;
+    [self map:^(id e) {
+        if ([e isEqual:element]) {
+            contains = YES;
+        }
+    }];
+    return contains;
+}
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])buffer count:(NSUInteger)len
+{
+    
+}
 @end

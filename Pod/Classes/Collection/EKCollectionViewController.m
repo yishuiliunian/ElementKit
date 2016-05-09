@@ -9,6 +9,14 @@
 #import "EKCollectionViewController.h"
 #import "EKElement.h"
 #import "EKCollectionElement.h"
+#import "NSObject+EventBus.h"
+
+@interface EKCollectionViewController ()
+{
+    EKEventBus* _eventBus;
+}
+@end
+
 @implementation EKCollectionViewController
 
 - (instancetype) initWithElement:(EKCollectionElement *)element
@@ -18,6 +26,9 @@
         return self;
     }
     _element = element;
+    _eventBus = [EKEventBus new];
+    self.eventBus = _eventBus;
+    _element.eventBus = _eventBus;
     return self;
 }
 

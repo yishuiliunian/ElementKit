@@ -10,6 +10,15 @@
 
 @implementation EKCollectionCellElement
 
+- (instancetype) init
+{
+    self = [super init];
+    if (!self) {
+        return self;
+    }
+    _viewClass = [UICollectionViewCell class];
+    return self;
+}
 - (void) registeCellInfoToCollectionView:(UICollectionView*)collectionView
 {
     [collectionView registerClass:_viewClass forCellWithReuseIdentifier:self.cellIdentify];
@@ -27,5 +36,13 @@
 {
     
 }
+- (UIViewController*) hostViewController
+{
+    if ([self.superCollectionView.nextResponder isKindOfClass:[UIViewController class]]) {
+        return (UIViewController*)self.superCollectionView.nextResponder;
+    }
+    return nil;
+}
+
 
 @end

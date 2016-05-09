@@ -10,8 +10,8 @@
 
 
 typedef struct {
-    long row;
-    long section;
+    NSUInteger row;
+    NSUInteger section;
 }EKIndexPath;
 
 extern  const EKIndexPath EKIndexPathInvaild;

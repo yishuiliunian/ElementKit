@@ -22,6 +22,7 @@
     }
     _firstDisplay = YES;
     _dataController = [EKTableDataController new];
+    _dataController.element = self;
     return self;
 }
 - (void) reloadData
@@ -67,6 +68,7 @@
 - (void) collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
     EKCollectionCellElement* element = [_dataController objectAtIndexPath:EKIndexPathFromNS(indexPath)];
+    element.superCollectionView = collectionView;
     [element willBeginHandleResponser:cell];
     [element didBeginHandleResponser:cell];
 }
@@ -76,6 +78,7 @@
     EKCollectionCellElement* element = [_dataController objectAtIndexPath:EKIndexPathFromNS(indexPath)];
     [element willRegsinHandleResponser:cell];
     [element didRegsinHandleResponser:cell];
+    element.superCollectionView = nil;
 }
 
 
