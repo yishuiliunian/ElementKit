@@ -32,6 +32,7 @@
 - (void) updateObjects:(NSArray *)array atSection:(NSInteger)index;
 - (void) changeObjectToFirst:(id)object;
 
+- (void) insertHeaderObjects:(NSArray *)objects atSection:(NSInteger)section;
 //
 - (BOOL) containsObject:(EKElement*)element;
 

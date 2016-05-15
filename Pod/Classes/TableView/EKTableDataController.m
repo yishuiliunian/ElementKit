@@ -193,6 +193,23 @@
     }];
     return contains;
 }
+
+- (void) insertHeaderObjects:(NSArray *)objects atSection:(NSInteger)section
+{
+    NSAssert(section <= _dataArray.count, @"无法隔空插入");
+    if (!objects.count) {
+        return;
+    }
+    NSMutableArray* array = nil;
+    if (section == _dataArray.count) {
+        array = [NSMutableArray new];
+        [_dataArray addObject:array];
+    } else {
+        array = _dataArray[section];
+    }
+    [array insertObjects:objects atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, objects.count)]];
+}
+
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])buffer count:(NSUInteger)len
 {
     
