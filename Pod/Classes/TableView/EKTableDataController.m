@@ -194,11 +194,11 @@
     return contains;
 }
 
-- (void) insertHeaderObjects:(NSArray *)objects atSection:(NSInteger)section
+- (NSArray*) insertHeaderObjects:(NSArray *)objects atSection:(NSInteger)section
 {
     NSAssert(section <= _dataArray.count, @"无法隔空插入");
     if (!objects.count) {
-        return;
+        return nil;
     }
     NSMutableArray* array = nil;
     if (section == _dataArray.count) {
@@ -207,7 +207,12 @@
     } else {
         array = _dataArray[section];
     }
+    NSMutableArray* indexpaths = [NSMutableArray new];
+    for (int i = 0; i < objects.count; i++) {
+        [indexpaths addObject:[NSIndexPath indexPathForRow:i  inSection:section]];
+    }
     [array insertObjects:objects atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, objects.count)]];
+    return indexpaths;
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])buffer count:(NSUInteger)len
