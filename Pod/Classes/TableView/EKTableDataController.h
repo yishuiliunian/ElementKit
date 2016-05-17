@@ -23,6 +23,7 @@
 - (NSArray*) objectsForSections:(EKSection)section;
 - (EKIndexPath) addObject:(id)anObject;
 - (EKIndexPath) addObject:(id)anObject atSection:(EKSection)sectioin;
+- (EKIndexPath) insertObject:(id)anObject atRow:(EKRow)row atSection:(EKSection)section;
 - (void) updateObject:(id)anObject atIndexPath:(EKIndexPath)indexPath;
 - (void) clean;
 - (void) map:(void(^)(id e))map;

@@ -78,6 +78,26 @@
     [anObject setEventBus:[_element eventBus]];
     return path;
 }
+
+- (EKIndexPath) insertObject:(id)anObject atRow:(EKRow)row atSection:(EKSection)section
+{
+    NSAssert(section <= _dataArray.count, @"section越界");
+    NSMutableArray* array = nil;
+    if (section == _dataArray.count) {
+        array = [NSMutableArray new];
+        [_dataArray addObject:array];
+    } else {
+        array = _dataArray[section];
+    }
+    
+    NSAssert(row <= array.count, @"row 越界");
+
+    [array insertObject:anObject atIndex:row];
+
+    EKIndexPath path = {row,section};
+    return path;
+    
+}
 - (void) updateObject:(id)anObject atIndexPath:(EKIndexPath)indexPath
 {
     _dataArray[indexPath.section][indexPath.row] = anObject;

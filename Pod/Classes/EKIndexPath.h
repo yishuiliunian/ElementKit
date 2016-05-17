@@ -23,3 +23,7 @@ typedef long EKRow;
 FOUNDATION_STATIC_INLINE  EKIndexPath EKIndexPathFromNS(NSIndexPath* indexPath) {
     return  (EKIndexPath){indexPath.row, indexPath.section};
 }
+
+FOUNDATION_STATIC_INLINE NSIndexPath* NSIndexPathFromEK(EKIndexPath indexPath) {
+    return [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
+}
