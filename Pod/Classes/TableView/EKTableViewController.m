@@ -30,12 +30,16 @@
     _tableElement.env = self;
     return self;
 }
-
+- (UITableView*) tableView{
+    if (!_tableView) {
+        _tableView = [_tableElement createResponser];
+    }
+    return _tableView;
+}
 
 - (void) loadView
 {
-    UITableView* tableView = [_tableElement createResponser];
-    self.tableView = tableView;
+    UITableView* tableView = self.tableView;
     self.view = tableView;
 }
 
