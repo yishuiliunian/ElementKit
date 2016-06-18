@@ -18,6 +18,9 @@
 @property (nonatomic, strong, readonly) EKTableDataController * dataController;
 @property (nonatomic, weak, readonly) UITableView* tableView;
 @property (nonatomic, weak) UIViewController* env;
-
+/**
+ *  滚动到Table尾部
+ */
+- (void) scrollToEnd;
 - (void) reloadData;
 @end
