@@ -15,7 +15,7 @@
 }
 @property (nonatomic, weak, readonly) UICollectionView* collectionView;
 @property (nonatomic, strong, readonly) EKTableDataController* dataController;
-
+- (UICollectionViewLayout*) createCollectionLayout;
 - (void) reloadData;
 
 @end

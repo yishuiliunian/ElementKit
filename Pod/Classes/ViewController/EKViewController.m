@@ -33,14 +33,16 @@
 - (void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.element didBeginHandleResponser:self];
+        [self.element willRegsinHandleResponser:self];
 }
 
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.element willRegsinHandleResponser:self];
+    [self.element didBeginHandleResponser:self];
+
+
 }
 
 - (void) viewDidDisappear:(BOOL)animated

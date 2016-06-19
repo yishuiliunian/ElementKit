@@ -38,9 +38,14 @@
     return [(UICollectionViewController*)self.uiEventPool collectionView];
 }
 
+- (UICollectionViewLayout*) createCollectionLayout
+{
+    return  [UICollectionViewFlowLayout new];
+}
+
 - (UIResponder*) createResponser
 {
-    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:[UIScreen mainScreen].bounds collectionViewLayout:[UICollectionViewFlowLayout new]];
+    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:[UIScreen mainScreen].bounds collectionViewLayout:[self createCollectionLayout]];
     collectionView.delegate = self;
     collectionView.dataSource = self;
     return collectionView;
@@ -88,6 +93,12 @@
 - (void) willBeginHandleResponser:(UIResponder *)responser
 {
     [super willBeginHandleResponser:responser];
+
+}
+
+- (void) didBeginHandleResponser:(UIResponder *)responser
+{
+    [super didBeginHandleResponser:responser];
     if (_firstDisplay) {
         [self reloadData];
         _firstDisplay = NO;
