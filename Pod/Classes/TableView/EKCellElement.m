@@ -58,6 +58,11 @@
     return nil;
 }
 
+- (NSIndexPath*) visibleIndexPath
+{
+    return     [self.superTableView indexPathForCell:self.uiEventPool];
+}
+
 - (void) reloadUI
 {
     NSIndexPath* indexPath = [self.superTableView indexPathForCell:self.uiEventPool];
@@ -68,5 +73,17 @@
         return;
     }
     [self.superTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void) scrollToVisible
+{
+    NSIndexPath* indexPath = [self.superTableView indexPathForCell:self.uiEventPool];
+    if (!indexPath) {
+        return;
+    }
+    if (indexPath.row == NSNotFound || indexPath.section == NSNotFound) {
+        return;
+    }
+    [self.superTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 @end

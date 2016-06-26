@@ -15,8 +15,9 @@
 @property (nonatomic, strong, readonly) NSString* cellIdentifier;
 @property (nonatomic,weak) UITableView* superTableView;
 @property (nonatomic, weak, readonly) UIViewController* hostViewController;
-
+@property (nonatomic, strong, readonly) NSIndexPath* visibleIndexPath;
 
 - (void) handleSelectedInViewController:(UIViewController*)vc;
 - (void) reloadUI;
+- (void) scrollToVisible;
 @end
