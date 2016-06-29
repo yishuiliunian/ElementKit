@@ -9,6 +9,9 @@
 #import "EKCellElement.h"
 @class EKAdjustTableViewCell;
 @interface EKAdjustCellElement : EKCellElement
+{
+    double _cellHeight;
+}
 @property (nonatomic, assign) double cellHeight;
 - (void) layoutCell:(EKAdjustTableViewCell*)cell;
 @end

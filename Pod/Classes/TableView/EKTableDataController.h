@@ -32,6 +32,7 @@
 - (void) updateSectionObjects:(NSArray*)sectionsArray;
 - (void) updateObjects:(NSArray *)array atSection:(NSInteger)index;
 - (void) changeObjectToFirst:(id)object;
+- (NSObject*) removeObjectAtIndexPath:(EKIndexPath)indexPath;
 
 - (NSArray*) insertHeaderObjects:(NSArray *)objects atSection:(NSInteger)section;
 //

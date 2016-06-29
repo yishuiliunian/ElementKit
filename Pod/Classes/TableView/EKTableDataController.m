@@ -239,4 +239,22 @@
 {
     
 }
+
+- (NSObject*) removeObjectAtIndexPath:(EKIndexPath)indexPath
+{
+    NSObject* object;
+    if (indexPath.section  >= _dataArray.count) {
+        return nil;
+    }
+    NSMutableArray* array = _dataArray[indexPath.section];
+    if (indexPath.row >= array.count) {
+        return nil;
+    }
+    object = [array objectAtIndex:indexPath.row];
+    [array removeObjectAtIndex:indexPath.row];
+    if (array.count == 0) {
+        [_dataArray removeObjectAtIndex:indexPath.section];
+    }
+    return object;
+}
 @end
