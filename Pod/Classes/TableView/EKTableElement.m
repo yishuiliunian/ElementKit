@@ -74,7 +74,6 @@
     EKCellElement* element = cell.ekActionResponser;
     [element willRegsinHandleResponser:cell];
     cell.ekActionResponser = nil;
-    element.superTableView = nil;
     [element didRegsinHandleResponser:cell];
 }
 
