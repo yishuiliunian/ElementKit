@@ -17,6 +17,7 @@
         return self;
     }
     _viewClass = UITableViewCell.class;
+    _showRightArrow = NO;
     return self;
 }
 
@@ -36,13 +37,19 @@
 {
     [super willBeginHandleResponser:responser];
     responser.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (self.showRightArrow) {
+        responser.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else {
+        responser.accessoryType = UITableViewCellAccessoryNone;
+    }
 }
-
 
 
 - (void) handleSelectedInViewController:(UIViewController *)vc
 {
-    
+    if (self.ek_handleAction) {
+        self.ek_handleAction(vc);
+    }
 }
 
 - (void) handleAction
