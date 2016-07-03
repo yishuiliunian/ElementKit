@@ -30,6 +30,19 @@
     return self;
 }
 
+- (NSComparisonResult) compare:(EKElement*)otherObject
+{
+    if (![otherObject isKindOfClass:[EKElement class]]) {
+        return NSOrderedDescending;
+    }
+    if (self.compareIdentifier > otherObject.compareIdentifier) {
+        return NSOrderedAscending;
+    } else if (self.compareIdentifier == otherObject.compareIdentifier) {
+        return NSOrderedSame;
+    } else {
+        return NSOrderedDescending;
+    }
+}
 - (UIResponder*) createResponser
 {
     if (_viewClass) {
