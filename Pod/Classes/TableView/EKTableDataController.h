@@ -10,7 +10,7 @@
 
 #import "EKIndexPath.h"
 
-
+NS_ASSUME_NONNULL_BEGIN
 @class EKElement;
 @interface EKTableDataController : NSObject <NSCopying, NSFastEnumeration>
 @property (nonatomic, assign, readonly) NSInteger numbersOfObject;
@@ -45,3 +45,4 @@
  */
 - (void) sortUseBlock:(NSComparisonResult(^)(id  _Nonnull obj1, id  _Nonnull obj2))block;
 @end
+NS_ASSUME_NONNULL_END

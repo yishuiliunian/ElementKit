@@ -13,6 +13,7 @@
 @implementation EKTableViewController
 {
     EKEventBus* _eventBus;
+    UITableView* _responseTableView;
 }
 
 
@@ -31,10 +32,10 @@
     return self;
 }
 - (UITableView*) tableView{
-    if (!_tableView) {
-        _tableView = [_tableElement createResponser];
+    if (!_responseTableView) {
+        _responseTableView = [_tableElement createResponser];
     }
-    return _tableView;
+    return _responseTableView;
 }
 
 - (void) loadView
