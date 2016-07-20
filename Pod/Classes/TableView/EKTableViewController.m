@@ -16,10 +16,17 @@
     UITableView* _responseTableView;
 }
 
-
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (!self) {
+        return self;
+    }
+    return self;
+}
 - (instancetype) initWithElement:(EKTableElement *)element
 {
-    self = [self init];
+    self = [self initWithNibName:nil bundle:nil];
     if (!self) {
         return self;
     }
