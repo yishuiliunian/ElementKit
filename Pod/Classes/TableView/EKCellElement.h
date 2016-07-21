@@ -21,6 +21,10 @@ typedef void(^EKHanldeAction)(UIViewController* vc);
 @property (nonatomic, assign) BOOL showRightArrow;
 @property (nonatomic, strong) EKHanldeAction ek_handleAction;
 - (void) handleSelectedInViewController:(UIViewController*)vc;
+/**
+ *  重新加载界面信息
+ */
 - (void) reloadUI;
+
 - (void) scrollToVisible;
 @end
