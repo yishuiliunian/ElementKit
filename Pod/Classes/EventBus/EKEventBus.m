@@ -61,6 +61,15 @@
     }
     [_handlerArray addObject:h];
 }
+- (BOOL) respondsToSelector:(SEL)aSelector
+{
+    for (EKEventHandler* ek in [_handlerArray copy]) {
+        if (sel_isEqual( ek.port, aSelector)) {
+            return YES;
+        }
+    }
+    return NO;
+}
 
 - (void) removeHandler:(id)handler prot:(SEL)selector
 {

@@ -110,7 +110,7 @@
         [_dataArray addObject:[NSMutableArray new]];
     }
     NSMutableArray* willInsertArray=_dataArray.lastObject;
-    for (EKElement* el in array) {
+    for (EKElement* el in [array copy]) {
         if (![willInsertArray containsObject:el]) {
             [willInsertArray addObject:el];
         }
@@ -122,7 +122,7 @@
 
 - (void) sortUseBlock:(NSComparisonResult(^)(id  _Nonnull obj1, id  _Nonnull obj2))block
 {
-    for (NSMutableArray* array in _dataArray) {
+    for (NSMutableArray* array in [_dataArray copy]) {
         [array sortUsingComparator:block];
     }
 }
@@ -137,8 +137,8 @@
         return;
     }
 
-    for (NSArray* array  in _dataArray) {
-        for (EKElement* e in array) {
+    for (NSArray* array  in [_dataArray copy]) {
+        for (EKElement* e in [array copy]) {
             map(e);
         }
     }
@@ -147,7 +147,7 @@
 - (NSInteger) numbersOfObject
 {
     int num = 0;
-    for (NSArray* array in _dataArray) {
+    for (NSArray* array in [_dataArray copy]) {
         num += array.count;
     }
     return num;
