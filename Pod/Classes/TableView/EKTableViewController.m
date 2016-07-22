@@ -51,6 +51,10 @@
     self.view = tableView;
 }
 
+- (DZAdjustTableView*) adjustTableView
+{
+    return (DZAdjustTableView*) self.tableView;
+}
 - (void) viewDidLoad
 {
     [super viewDidLoad];

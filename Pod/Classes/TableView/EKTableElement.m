@@ -10,6 +10,7 @@
 #import "EKCellElement.h"
 #import "UIView+EKElement.h"
 #import "EKIndexPath.h"
+#import <DZAdjustFrame/DZAdjustTableView.h>
 
 
 @implementation EKTableElement
@@ -20,7 +21,7 @@
         return self;
     }
     _firstDisplay  = YES;
-    _viewClass = UITableView.class;
+    _viewClass = DZAdjustTableView.class;
     _dataController = [EKTableDataController new];
     return self;
 }
