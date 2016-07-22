@@ -7,7 +7,9 @@
 //
 
 #import "EKCellElement.h"
-
+#import "UIResponder+EK_FindHost.h"
+#import "EKEventBus.h"
+#import "NSObject+EventBus.h"
 @implementation EKCellElement
 
 - (instancetype) init
@@ -92,5 +94,10 @@
         return;
     }
     [self.superTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+
+- (void) notifyRemoveThisElement
+{
+    [self.eventBus performSelector:@selector(onHanldeRemoveElement:) withObject:self];
 }
 @end

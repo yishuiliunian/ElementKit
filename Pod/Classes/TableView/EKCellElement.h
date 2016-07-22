@@ -10,6 +10,14 @@
 
 typedef void(^EKHanldeAction)(UIViewController* vc);
 
+
+@class EKElement;
+@protocol EKCellElementEvents <NSObject>
+
+- (void) onHanldeRemoveElement:(EKElement*)ele;
+
+@end
+
 @interface EKCellElement : EKElement
 {
     __weak UITableView* _superTableView;
@@ -27,4 +35,9 @@ typedef void(^EKHanldeAction)(UIViewController* vc);
 - (void) reloadUI;
 
 - (void) scrollToVisible;
+
+/**
+ *  通知删除改元素
+ */
+- (void) notifyRemoveThisElement;
 @end

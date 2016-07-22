@@ -11,7 +11,10 @@
 #import "UIView+EKElement.h"
 #import "EKIndexPath.h"
 #import <DZAdjustFrame/DZAdjustTableView.h>
+#import "NSObject+EventBus.h"
+@interface EKTableElement () <EKCellElementEvents>
 
+@end
 
 @implementation EKTableElement
 - (instancetype) init
@@ -97,6 +100,7 @@
         [self reloadData];
         _firstDisplay = NO;
     }
+    [self.eventBus addHandler:self priority:1 port:@selector(onHanldeRemoveElement:)];
 }
 
 - (void) reloadData
@@ -121,4 +125,17 @@
     
 }
 
+- (void) onHanldeRemoveElement:(EKElement *)ele
+{
+    NSIndexPath* indexpath = [_dataController indexPathOfObject:ele];
+    if (indexpath && indexpath.row != NSNotFound) {
+        [_dataController removeObjectAtIndexPath:EKIndexPathFromNS(indexpath)];
+        if (indexpath.row == 0) {
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexpath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
+        } else {
+            [self.tableView deleteRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    }
+    
+}
 @end
