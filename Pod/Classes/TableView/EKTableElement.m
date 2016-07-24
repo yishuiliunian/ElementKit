@@ -130,7 +130,7 @@
     NSIndexPath* indexpath = [_dataController indexPathOfObject:ele];
     if (indexpath && indexpath.row != NSNotFound) {
         [_dataController removeObjectAtIndexPath:EKIndexPathFromNS(indexpath)];
-        if (indexpath.row == 0) {
+        if (indexpath.row == 0 && [_dataController numberAtSection:indexpath.section] == 0) {
             [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexpath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
         } else {
             [self.tableView deleteRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationAutomatic];

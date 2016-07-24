@@ -40,7 +40,12 @@
 }
 - (NSInteger) numberAtSection:(EKSection)section
 {
-    return [[_dataArray objectAtIndex:section] count];
+    if (_dataArray.count > section) {
+        return [[_dataArray objectAtIndex:section] count];
+    } else {
+        return 0;
+    }
+
 }
 - (id<NSObject>) objectAtIndexPath:(EKIndexPath)indexPath
 {
