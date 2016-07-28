@@ -189,7 +189,7 @@
     }
     
     for (id e  in array) {
-        [e setEventBus:self.eventBus];
+        [e setEventBus:[_element eventBus]];
     }
 }
 
