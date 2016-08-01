@@ -97,6 +97,8 @@
 
 - (void) notifyRemoveThisElement
 {
-    [self.eventBus performSelector:@selector(onHanldeRemoveElement:) withObject:self];
+    if (self.eventBus) {
+        [self.eventBus performSelector:@selector(onHanldeRemoveElement:) withObject:self];
+    }
 }
 @end

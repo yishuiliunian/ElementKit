@@ -142,6 +142,5 @@
             [self.tableView deleteRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationAutomatic];
         }
     }
-    
 }
 @end
