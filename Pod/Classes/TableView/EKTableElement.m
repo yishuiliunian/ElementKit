@@ -84,7 +84,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EKCellElement* element = (EKCellElement*)[_dataController objectAtIndexPath:EKIndexPathFromNS(indexPath)];
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO animated:YES];
     [element handleSelectedInViewController:self.uiEventPool];
+}
+- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 

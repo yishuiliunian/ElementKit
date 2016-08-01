@@ -38,7 +38,6 @@
 - (void) willBeginHandleResponser:(UITableViewCell*)responser
 {
     [super willBeginHandleResponser:responser];
-    responser.selectionStyle = UITableViewCellSelectionStyleNone;
     if (self.showRightArrow) {
         responser.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     } else {

@@ -15,6 +15,12 @@
 
 @implementation EKAdjustTableViewCell
 
+- (void) setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+    [self setSelected:animated animated:animated];
+    [super setHighlighted:highlighted animated:animated];
+}
+
 - (void) layoutSubviews
 {
     [super layoutSubviews];

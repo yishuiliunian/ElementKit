@@ -10,4 +10,5 @@
 
 @class EKAdjustCellElement;
 @interface EKAdjustTableViewCell : UITableViewCell
+@property (nonatomic, readonly) BOOL needShowHighlight;
 @end
