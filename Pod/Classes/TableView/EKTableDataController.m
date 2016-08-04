@@ -53,7 +53,7 @@
 }
 - (NSArray*) objectsForSections:(EKSection)section
 {
-    return _dataArray[section];
+    return [_dataArray[section] copy];
 }
 - (EKIndexPath) addObject:(id)anObject
 {
