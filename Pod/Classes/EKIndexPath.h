@@ -19,6 +19,9 @@ extern  const EKIndexPath EKIndexPathInvaild;
 typedef long EKSection;
 typedef long EKRow;
 
+FOUNDATION_STATIC_INLINE EKIndexPath EKCreateIndexPath(int row, int section) {
+    return (EKIndexPath){row, section};
+}
 
 FOUNDATION_STATIC_INLINE  EKIndexPath EKIndexPathFromNS(NSIndexPath* indexPath) {
     return  (EKIndexPath){indexPath.row, indexPath.section};
