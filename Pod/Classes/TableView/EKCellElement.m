@@ -20,6 +20,7 @@
     }
     _viewClass = UITableViewCell.class;
     _showRightArrow = NO;
+    _selectionStyle = UITableViewCellSelectionStyleDefault;
     return self;
 }
 
@@ -43,6 +44,7 @@
     } else {
         responser.accessoryType = UITableViewCellAccessoryNone;
     }
+    responser.selectionStyle = self.selectionStyle;
 }
 
 
