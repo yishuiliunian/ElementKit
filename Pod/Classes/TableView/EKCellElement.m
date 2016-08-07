@@ -103,4 +103,9 @@
         [self.eventBus performSelector:@selector(onHanldeRemoveElement:) withObject:self];
     }
 }
+
+- (void) onHandleDeleteEditing
+{
+    
+}
 @end

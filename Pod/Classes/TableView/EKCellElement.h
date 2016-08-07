@@ -41,4 +41,9 @@ typedef void(^EKHanldeAction)(UIViewController* vc);
  *  通知删除改元素
  */
 - (void) notifyRemoveThisElement;
+
+/**
+ *  响应右滑删除
+ */
+- (void) onHandleDeleteEditing;
 @end
