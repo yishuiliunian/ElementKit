@@ -121,6 +121,9 @@
     for (EKElement* el in [array copy]) {
         if (![willInsertArray containsObject:el]) {
             [willInsertArray addObject:el];
+        } else {
+            NSInteger index = [willInsertArray indexOfObject:el];
+            [willInsertArray replaceObjectAtIndex:index withObject:el];
         }
     }
     [self map:^(id e) {
