@@ -82,7 +82,9 @@
     if (indexPath.row == NSNotFound || indexPath.section == NSNotFound) {
         return;
     }
+    [self.superTableView beginUpdates];
     [self.superTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.superTableView endUpdates];
 }
 
 - (void) scrollToVisible
