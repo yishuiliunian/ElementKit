@@ -155,6 +155,22 @@
     }
 }
 
+- (void)  traverse:(void(^)(id e, int section ,int row, bool* willStop))map {
+    if (!map) {
+        return;
+    }
+    NSArray* dataArray = [_dataArray copy];
+    for (int section = 0; section < dataArray.count; section++) {
+        NSArray* sectionArray = [dataArray[section] copy];
+        for (int row = 0; row < sectionArray.count; row++) {
+            BOOL willStop = NO;
+            id element = sectionArray[row];
+            map(element, section, row, &willStop);
+        }
+    }
+}
+
+
 - (NSInteger) numbersOfObject
 {
     int num = 0;

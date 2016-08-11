@@ -44,5 +44,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param block 使用的block
  */
 - (void) sortUseBlock:(NSComparisonResult(^)(id  _Nonnull obj1, id  _Nonnull obj2))block;
+
+
+/**
+ *  遍历存储在DataController中的所有的元素
+ *
+ *  @param map 对元素进行操作或者检查元素的特定属性
+ */
+- (void)  traverse:(void(^)(id e, int section ,int row, bool* willStop))map;
 @end
 NS_ASSUME_NONNULL_END
