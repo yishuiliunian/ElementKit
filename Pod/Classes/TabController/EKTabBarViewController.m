@@ -79,7 +79,7 @@
 - (void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [_element didBeginHandleResponser:self];
+    [_element willRegsinHandleResponser:self];
     
 }
 
@@ -87,7 +87,7 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [_element willRegsinHandleResponser:self];
+    [_element didBeginHandleResponser:self];
 }
 
 - (void) viewDidDisappear:(BOOL)animated
