@@ -75,6 +75,11 @@
 
 - (void) reloadUI
 {
+    [self reloadUIWithAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void) reloadUIWithAnimation:(UITableViewRowAnimation)animation
+{
     NSIndexPath* indexPath = [self.superTableView indexPathForCell:self.uiEventPool];
     if (!indexPath) {
         return;
@@ -83,7 +88,7 @@
         return;
     }
     [self.superTableView beginUpdates];
-    [self.superTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.superTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
     [self.superTableView endUpdates];
 }
 

@@ -30,6 +30,20 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSIndexPath*)indexPathOfObject:(id)anobject;
 - (void) updateObjects:(NSArray*)array;
 - (void) updateSectionObjects:(NSArray*)sectionsArray;
+/**
+ *  直接替换指定section位置的所有元素
+ *
+ *  @param array 将要替换的元素列表
+ *  @param index 制定的Section
+ */
+- (void) replaceObjects:(NSArray *)array atSection:(NSInteger)index;
+
+/**
+ *  更新指定Section位置的元素，如果改元素存在则进行替换操作，如果不存在则插入到末尾位置
+ *
+ *  @param array 将要更新的元素列表
+ *  @param index 指定的Section位置
+ */
 - (void) updateObjects:(NSArray *)array atSection:(NSInteger)index;
 - (void) changeObjectToFirst:(id)object;
 - (NSObject*) removeObjectAtIndexPath:(EKIndexPath)indexPath;

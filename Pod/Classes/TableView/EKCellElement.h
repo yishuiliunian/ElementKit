@@ -35,6 +35,8 @@ typedef void(^EKHanldeAction)(UIViewController* vc);
  */
 - (void) reloadUI;
 
+- (void) reloadUIWithAnimation:(UITableViewRowAnimation)animation;
+
 - (void) scrollToVisible;
 
 /**

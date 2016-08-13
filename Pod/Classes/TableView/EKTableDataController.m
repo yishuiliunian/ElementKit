@@ -185,7 +185,7 @@
     for (int i = 0; i < _dataArray.count ; i++) {
         NSArray* eles = _dataArray[i];
         for (int j = 0; j < eles.count; j++) {
-            if (anobject == eles[j]) {
+            if ([anobject isEqual:eles[j]]) {
                 return [NSIndexPath indexPathForRow:j inSection:i];
             }
         }
@@ -200,7 +200,7 @@
     return dataController;
 }
 
-- (void) updateObjects:(NSArray *)array atSection:(NSInteger)index
+- (void) replaceObjects:(NSArray *)array atSection:(NSInteger)index
 {
     NSAssert(index <= _dataArray.count, @"数据越界了");
     NSMutableArray * datas = [NSMutableArray arrayWithArray:array];
@@ -215,6 +215,28 @@
     }
 }
 
+- (void) updateObjects:(NSArray *)array atSection:(NSInteger)index
+{
+    NSAssert(index <= _dataArray.count, @"数据越界了");
+    if (index == _dataArray.count) {
+        NSMutableArray * datas = [NSMutableArray arrayWithArray:array];
+        [_dataArray addObject:datas];
+    } else {
+        NSMutableArray* datas = _dataArray[index];
+        for (id ele in array) {
+            if ([datas containsObject:ele]) {
+                NSInteger eleIndex = [datas indexOfObject:ele];
+                [datas replaceObjectAtIndex:eleIndex withObject:ele];
+            } else {
+                [datas addObject:ele];
+            }
+        }
+    }
+    
+    for (id e  in array) {
+        [e setEventBus:[_element eventBus]];
+    }
+}
 - (void) changeObjectToFirst:(id)object
 {
     if (_dataArray.count == 0 || [_dataArray[0] count] == 0) {
