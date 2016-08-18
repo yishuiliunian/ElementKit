@@ -15,7 +15,7 @@
     if (!self) {
         return self;
     }
-    _cellHeight = 44;
+    _cellHeight = 44.f;
     return self;
 }
 

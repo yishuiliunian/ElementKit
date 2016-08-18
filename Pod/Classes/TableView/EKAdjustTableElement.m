@@ -16,7 +16,7 @@
     if (!self) {
         return self;
     }
-    _defaultCellHeight = 44;
+    _defaultCellHeight = 44.f;
     return self;
 
 }
@@ -25,9 +25,10 @@
 {
     EKElement* ele = (EKElement*)[_dataController objectAtIndexPath:EKIndexPathFromNS(indexPath)];
     if ([ele respondsToSelector:@selector(cellHeight)]) {
-        return [(EKAdjustCellElement*)ele  cellHeight];
+        CGFloat cellHeight =  (CGFloat)[(EKAdjustCellElement*)ele  cellHeight];
+        return cellHeight;
     } else {
-        return _defaultCellHeight;
+        return (CGFloat)_defaultCellHeight;
     }
 }
 
