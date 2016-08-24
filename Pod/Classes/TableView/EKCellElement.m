@@ -70,7 +70,10 @@
 
 - (NSIndexPath*) visibleIndexPath
 {
-    return     [self.superTableView indexPathForCell:self.uiEventPool];
+    [self.superTableView beginUpdates];
+    NSIndexPath* indexPath = [self.superTableView indexPathForCell:self.uiEventPool];
+    [self.superTableView endUpdates];
+    return indexPath;
 }
 
 - (void) reloadUI
