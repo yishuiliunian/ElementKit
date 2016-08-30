@@ -44,7 +44,9 @@
     } else {
         responser.accessoryType = UITableViewCellAccessoryNone;
     }
-    responser.selectionStyle = self.selectionStyle;
+    if (responser.selectionStyle != self.selectionStyle) {
+        responser.selectionStyle = self.selectionStyle;
+    }
 }
 
 

@@ -36,6 +36,7 @@
     tableView.dataSource = self;
     tableView.tableFooterView = [UIView new];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.allowsMultipleSelection = NO;
     return tableView;
 }
 
@@ -88,6 +89,7 @@
     [cell setSelected:NO animated:YES];
     [element handleSelectedInViewController:self.uiEventPool];
 }
+
 - (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
