@@ -280,6 +280,9 @@
     for (int i = 0; i < objects.count; i++) {
         [indexpaths addObject:[NSIndexPath indexPathForRow:i  inSection:section]];
     }
+    for (NSObject* object in objects) {
+        object.eventBus = [_element eventBus];
+    }
     [array insertObjects:objects atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, objects.count)]];
     return indexpaths;
 }
