@@ -128,7 +128,9 @@
             return;
         }
         NSIndexPath* indexpath = [NSIndexPath indexPathForRow:row-1 inSection:section-1];
+        [self.tableView beginUpdates];
         [self.tableView scrollToRowAtIndexPath:indexpath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        [self.tableView endUpdates];
     }
     
 }
@@ -138,11 +140,13 @@
     NSIndexPath* indexpath = [_dataController indexPathOfObject:ele];
     if (indexpath && indexpath.row != NSNotFound) {
         [_dataController removeObjectAtIndexPath:EKIndexPathFromNS(indexpath)];
+        [self.tableView beginUpdates];
         if (indexpath.row == 0 && [_dataController numberAtSection:indexpath.section] == 0) {
             [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexpath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
         } else {
             [self.tableView deleteRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationAutomatic];
         }
+        [self.tableView endUpdates];
     }
 }
 
