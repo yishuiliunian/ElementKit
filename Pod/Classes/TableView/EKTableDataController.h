@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param array 将要替换的元素列表
  *  @param index 制定的Section
  */
-- (void) replaceObjects:(NSArray *)array atSection:(NSInteger)index;
+- (BOOL) replaceObjects:(NSArray *)array atSection:(NSInteger)index;
 
 /**
  *  更新指定Section位置的元素，如果改元素存在则进行替换操作，如果不存在则插入到末尾位置

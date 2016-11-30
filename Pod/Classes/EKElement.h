@@ -36,7 +36,7 @@
 
 #pragma Child Element Functions
 @interface EKElement ()
-@property (nonatomic, weak, readonly) EKElement* superElement;
+@property (nonatomic, weak) EKElement* superElement;
 - (void) removeFromeSuper;
 @end
 

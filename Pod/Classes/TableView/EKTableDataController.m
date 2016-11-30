@@ -200,11 +200,13 @@
     return dataController;
 }
 
-- (void) replaceObjects:(NSArray *)array atSection:(NSInteger)index
+- (BOOL) replaceObjects:(NSArray *)array atSection:(NSInteger)index
 {
     NSAssert(index <= _dataArray.count, @"数据越界了");
     NSMutableArray * datas = [NSMutableArray arrayWithArray:array];
+    BOOL insert = NO;
     if (index == _dataArray.count) {
+        insert = YES;
         [_dataArray addObject:datas];
     } else {
         _dataArray[index] = datas;
@@ -213,6 +215,7 @@
     for (id e  in array) {
         [e setEventBus:[_element eventBus]];
     }
+    return insert;
 }
 
 - (void) updateObjects:(NSArray *)array atSection:(NSInteger)index
@@ -232,7 +235,6 @@
             }
         }
     }
-    
     for (id e  in array) {
         [e setEventBus:[_element eventBus]];
     }
