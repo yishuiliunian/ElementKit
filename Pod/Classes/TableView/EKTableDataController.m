@@ -202,7 +202,11 @@
 
 - (BOOL) replaceObjects:(NSArray *)array atSection:(NSInteger)index
 {
-    NSAssert(index <= _dataArray.count, @"数据越界了");
+    if (index >= _dataArray.count) {
+        for (int i = _dataArray.count; i < index; i++) {
+            [_dataArray addObject:[NSMutableArray new]];
+        }
+    }
     NSMutableArray * datas = [NSMutableArray arrayWithArray:array];
     BOOL insert = NO;
     if (index == _dataArray.count) {
