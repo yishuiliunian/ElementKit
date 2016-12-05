@@ -86,7 +86,10 @@
     element.superCollectionView = nil;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    EKCollectionCellElement * element = [_dataController objectAtIndexPath:EKIndexPathFromNS(indexPath)];
 
+}
 
 #pragma EK element life circle
 

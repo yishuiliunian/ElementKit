@@ -18,4 +18,5 @@
 - (void) registeCellInfoToCollectionView:(UICollectionView*)collectionView;
 - (void) loadContentWithCell:(UICollectionViewCell*)cell;
 - (UIResponder*) createResponser UNAVAILABLE_ATTRIBUTE;
+
 @end
