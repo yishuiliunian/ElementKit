@@ -96,16 +96,16 @@
 - (void) willBeginHandleResponser:(UIResponder *)responser
 {
     [super willBeginHandleResponser:responser];
-
+    if (_firstDisplay) {
+        [self reloadData];
+        _firstDisplay = NO;
+    }
 }
 
 - (void) didBeginHandleResponser:(UIResponder *)responser
 {
     [super didBeginHandleResponser:responser];
-    if (_firstDisplay) {
-        [self reloadData];
-        _firstDisplay = NO;
-    }
+
 }
 
 @end
