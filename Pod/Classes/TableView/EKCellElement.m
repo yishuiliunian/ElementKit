@@ -80,7 +80,7 @@
 
 - (void) reloadUI
 {
-    [self reloadUIWithAnimation:UITableViewRowAnimationAutomatic];
+    [self reloadUIWithAnimation:UITableViewRowAnimationNone];
 }
 
 - (void) reloadUIWithAnimation:(UITableViewRowAnimation)animation
