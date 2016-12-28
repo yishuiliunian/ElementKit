@@ -22,6 +22,7 @@ typedef void(^EKHanldeAction)(UIViewController* vc);
 {
     __weak UITableView* _superTableView;
 }
+@property  (nonatomic, strong, readonly, getter=uiEventPool) UITableViewCell* activeCell;
 @property (nonatomic, assign) UITableViewCellSelectionStyle selectionStyle;
 @property (nonatomic, strong, readonly) NSString* cellIdentifier;
 @property (nonatomic,weak) UITableView* superTableView;

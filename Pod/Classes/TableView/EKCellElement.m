@@ -11,7 +11,7 @@
 #import "EKEventBus.h"
 #import "NSObject+EventBus.h"
 @implementation EKCellElement
-
+@dynamic activeCell;
 - (instancetype) init
 {
     self = [super init];

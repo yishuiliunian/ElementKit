@@ -13,5 +13,6 @@
     double _cellHeight;
 }
 @property (nonatomic, assign) double cellHeight;
+@property  (nonatomic, strong, readonly, getter=uiEventPool) EKAdjustTableViewCell * activeCell;
 - (void) layoutCell:(EKAdjustTableViewCell*)cell;
 @end
