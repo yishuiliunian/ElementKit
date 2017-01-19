@@ -24,7 +24,7 @@
     Class _viewClass;
 }
 - (id) createResponser;
-@property (nonatomic, assign, readonly) int64_t compareIdentifier;
+
 @property (nonatomic, weak, readonly) UIResponder* uiEventPool;
 @end
 
@@ -35,7 +35,11 @@
 @end
 
 #pragma Child Element Functions
+
 @interface EKElement ()
+/* if the element will be sorted, to return this
+ * */
+@property (nonatomic, assign, readonly) int64_t compareIdentifier;
 @property (nonatomic, weak) EKElement* superElement;
 - (void) removeFromeSuper;
 @end
